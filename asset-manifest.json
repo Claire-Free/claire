@@ -1,17 +1,13 @@
 {
   "files": {
-    "main.css": "/claire/static/css/main.4381916c.css",
-    "main.js": "/claire/static/js/main.8a3c04cc.js",
-    "static/media/about-bg.png": "/claire/static/media/about-bg.6af13b0fece928a28f46.png",
-    "static/media/work2.png": "/claire/static/media/work2.1a4d9986f5dc6b05450a.png",
-    "static/media/work1.png": "/claire/static/media/work1.ef10e07d3c3503d1ae31.png",
-    "static/media/portfolio.png": "/claire/static/media/portfolio.a6e51b5f5995a1ce8079.png",
+    "main.css": "/claire/static/css/main.7d939527.css",
+    "main.js": "/claire/static/js/main.b80f3d34.js",
     "index.html": "/claire/index.html",
-    "main.4381916c.css.map": "/claire/static/css/main.4381916c.css.map",
-    "main.8a3c04cc.js.map": "/claire/static/js/main.8a3c04cc.js.map"
+    "main.7d939527.css.map": "/claire/static/css/main.7d939527.css.map",
+    "main.b80f3d34.js.map": "/claire/static/js/main.b80f3d34.js.map"
   },
   "entrypoints": [
-    "static/css/main.4381916c.css",
-    "static/js/main.8a3c04cc.js"
+    "static/css/main.7d939527.css",
+    "static/js/main.b80f3d34.js"
   ]
 }
