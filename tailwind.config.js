@@ -20,6 +20,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+         cormorant: ['"Cormorant Garamond"', 'serif'],
         serif: ['Playfair Display', 'serif'],  // headings
         sans: ['Inter', 'sans-serif'],         // body
         accent: ['Sacramento', 'cursive'],     // accents

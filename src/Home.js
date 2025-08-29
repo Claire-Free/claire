@@ -108,36 +108,43 @@ export default function Home({
       </div>
 
       {/* SPLASH SCREEN BEFORE ENTER */}
-      {!hasEntered && (
-        <div className="fixed inset-0 z-50 bg-white/30 backdrop-blur-md">
-          {/* Centered Name */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-6xl font-serif text-[#A78D7F]">Claire Freeman</h1>
-          </div>
+{/* SPLASH SCREEN BEFORE ENTER */}
+{!hasEntered && (
+  <div className="fixed inset-0 z-50 bg-white/40 backdrop-blur-lg flex flex-col items-center justify-center text-center">
+    {/* Centered Name */}
+    <h1 className="text-6xl md:text-7xl font-serif tracking-wide text-[#A78D7F] drop-shadow-sm">
+      Claire Freeman
+    </h1>
 
-          {/* Bottom-left Corner Info */}
-          <div className="absolute bottom-10 text-8xl left-10 max-w-sm text-left">
-            <p className="text-[#A78D7F] text-lg font-light mb-6">
-              Welcome! Explore my site with music for a truly immersive experience.
-            </p>
+    {/* Subtitle / tagline (optional, can remove) */}
 
-            <div className="flex space-x-6">
-              <button
-                onClick={() => handleEnterSite(true)}
-                className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-              >
-                Enter with Music
-              </button>
-              <button
-                onClick={() => handleEnterSite(false)}
-                className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-              >
-                Enter without Music
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+<p className="mt-6 text-2xl md:text-3xl font-montserrat text-[#b12727] tracking-widest uppercase">
+  Portfolio
+</p>
+
+
+
+    
+
+    {/* Buttons */}
+    <div className="mt-10 flex space-x-6">
+      <button
+        onClick={() => handleEnterSite(true)}
+        className="px-8 py-3 border-2 border-[#A78D7F] bg-[#A78D7F] font-serif text-white text-base md:text-lg tracking-wide rounded-full transition hover:bg-transparent hover:text-[#A78D7F]"
+      >
+        Enter with Music
+      </button>
+      <button
+        onClick={() => handleEnterSite(false)}
+        className="px-8 py-3 border-2 border-[#A78D7F] bg-[#A78D7F] font-serif text-white text-base md:text-lg tracking-wide rounded-full transition hover:bg-transparent hover:text-[#A78D7F]"
+      >
+        Enter without Music
+      </button>
+    </div>
+  </div>
+)}
+
+        
     </div>
   );
 }
