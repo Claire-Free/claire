@@ -142,11 +142,6 @@ const PortfolioPage = () => {
   </div>
 </section>
 
-{/* Recent Work Section */}
-{/* <div className="w-full m-0 p-o bg-[#b12727]">
-  <h3 className="text-4xl md:text-5xl font-serif mb-6 tracking-wide text-white text-center">
-    Recent Work
-  </h3> */}
   <section className="w-full bg-[#b12727] py-12">
   <h3 className="text-4xl md:text-5xl font-serif tracking-wide text-white text-center">
     Recent Work
