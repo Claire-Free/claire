@@ -1,44 +1,53 @@
 import React, { useRef, useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
-import AboutPage from "./components/AboutPage";
 import About from "./About";
+import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
-import PortfolioPage from './components/PortfolioPage';
-import Footer from "./components/Footer"
-
+import PortfolioPage from "./components/PortfolioPage";
+import Footer from "./components/Footer";
 
 function App() {
   const audioRef = useRef(null);
   const [hasEntered, setHasEntered] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
+  // Start site with or without music
   const handleEnterSite = (withMusic) => {
     setHasEntered(true);
+
     if (audioRef.current) {
-      audioRef.current.muted = !withMusic;
-      setIsMuted(!withMusic);
       if (withMusic) {
-        audioRef.current.play().catch(() => {});
+        audioRef.current.muted = false;
+        setIsMuted(false);
+        audioRef.current
+          .play()
+          .catch((err) => console.log("Autoplay blocked:", err));
+      } else {
+        audioRef.current.muted = true;
+        setIsMuted(true);
       }
     }
   };
 
+  // Toggle mute/unmute globally
   const toggleMute = () => {
     if (audioRef.current) {
       const newMuted = !isMuted;
       audioRef.current.muted = newMuted;
       setIsMuted(newMuted);
 
+      // If unmuted, ensure playback resumes
       if (!newMuted) {
-        // If user unmutes, try to play audio
-        audioRef.current.play().catch(() => {});
+        audioRef.current
+          .play()
+          .catch((err) => console.log("Autoplay blocked:", err));
       }
     }
   };
 
-  // Sync mute state if user refreshes
+  // Always sync isMuted with audio element
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.muted = isMuted;
@@ -46,15 +55,17 @@ function App() {
   }, [isMuted]);
 
   return (
-    <Router>
-      <audio ref={audioRef} src="/music.mp3" loop preload="auto" />
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {/* GLOBAL AUDIO (persists everywhere) */}
+      <audio
+        ref={audioRef}
+        src={`${process.env.PUBLIC_URL}/music.mp3`}
+        loop
+        preload="auto"
+      />
 
       {hasEntered && (
-        <Navbar
-          hasEntered={hasEntered}
-          isMuted={isMuted}
-          toggleMute={toggleMute}
-        />
+        <Navbar hasEntered={hasEntered} isMuted={isMuted} toggleMute={toggleMute} />
       )}
 
       <Routes>
@@ -67,47 +78,30 @@ function App() {
                 isMuted={isMuted}
                 toggleMute={toggleMute}
                 handleEnterSite={handleEnterSite}
-                audioRef={audioRef}
               />
               {hasEntered && <About />}
             </>
           }
         />
+
         <Route
           path="/about"
-          element={
-            <AboutPage
-              isMuted={isMuted}
-              toggleMute={toggleMute}
-              audioRef={audioRef}
-            />
-          }
+          element={<AboutPage isMuted={isMuted} toggleMute={toggleMute} />}
         />
-         <Route
+
+        <Route
           path="/portfolio"
-          element={
-            <PortfolioPage
-              isMuted={isMuted}
-              toggleMute={toggleMute}
-              audioRef={audioRef}
-            />
-          }
+          element={<PortfolioPage isMuted={isMuted} toggleMute={toggleMute} />}
         />
 
         <Route
           path="/contact"
-          element={
-            <ContactPage
-              isMuted={isMuted}
-              toggleMute={toggleMute}
-              audioRef={audioRef}
-            />
-           
-          }
+          element={<ContactPage isMuted={isMuted} toggleMute={toggleMute} />}
         />
       </Routes>
+
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

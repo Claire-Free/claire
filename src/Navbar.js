@@ -33,20 +33,7 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
           {/* Left empty space */}
           <div className="w-1/3" />
 
-    
-{/* Center logo
-<div className="absolute inset-x-0 top-0 flex justify-center items-center h-full">
-  <Link to="/" className="block">
-    <img
-      src="/logo.png"
-      alt="Logo"
-      className={`transition-all duration-700 ease-in-out ${
-        scrolled ? "w-36 md:w-44 lg:w-52" : "w-55 md:w-60 lg:w-68"
-      }`}
-      style={{ cursor: "pointer" }}
-    />
-  </Link>
-</div> */}
+  
 
 {/* Center logo – appears on scroll only */}
 <AnimatePresence>
@@ -56,15 +43,20 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-x-0 top-0 flex justify-center items-center h-28 z-40 pointer-events-none"
+      className="fixed inset-x-0 top-5 flex justify-center items-center h-28 z-40 pointer-events-none"
     >
       <Link to="/" className="pointer-events-auto">
-        <img
-          src="/logo.png"
-          alt="Logo"
-          className="w-36 md:w-44 lg:w-52 transition-all duration-500 ease-in-out"
-          style={{ cursor: "pointer" }}
-        />
+<img
+  src={`${process.env.PUBLIC_URL}/logo.png`}
+  alt="Logo"
+  className="h-36 sm:h-44 md:h-56 lg:h-72 xl:h-80 max-w-full transition-all duration-500 ease-in-out"
+  style={{ cursor: "pointer" }}
+/>
+
+
+
+
+
       </Link>
     </motion.div>
   )}
@@ -73,41 +65,20 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
        <div className="fixed top-6 right-0 z-50">
   <button
     onClick={() => setIsOpen(!isOpen)}
-    className="bg-[#A78D7F] text-white px-2 py-4 rounded-l-xl shadow-md transform hover:scale-105 transition-transform origin-right"
+    className="bg-[#A78D7F] text-white px-3 py-6 rounded-l-xl shadow-md transform hover:scale-105 transition-transform origin-right"
   >
-    <span className="text-m font-Playfair Display bg-[#A78D7F] tracking-wider rotate-90 inline-block whitespace-nowrap">
+    <span className="text-xl font-Playfair Display bg-[#A78D7F] tracking-wider rotate-90 inline-block whitespace-nowrap">
       MENU
     </span>
   </button>
 </div> 
 
 
-{/* <div className="fixed top-6 right-0 z-50">
-  <button
-    onClick={() => setIsOpen(!isOpen)}
-    className="bg-[#A78D7F] text-white px-2 py-4 rounded-l-xl shadow-md transform hover:scale-105 transition-transform origin-right"
-  >
-    <span className="text-m font-Playfair Display bg-[#A78D7F] tracking-wider rotate-90 inline-block whitespace-nowrap">
-      MENU
-    </span>
-  </button>
-</div> */}
+
 
 
      
-          {/* Pearl Floating Button (Radial Style) */}
- {/* <motion.button
-  onClick={() => setIsOpen(true)}
-  initial={{ opacity: 0, scale: 0.8 }}
-  animate={{ opacity: 1, scale: 1 }}
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.95 }}
-  transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-6 right-6 z-[90] w-14 h-14 sm:w-16 sm:h-16 bg-white/60 backdrop-blur-md text-[#3B3029] rounded-full shadow-xl border border-[#3B3029]/10 flex items-center justify-center hover:bg-[#f2e9e1] transition-colors duration-300"
-  aria-label="Open menu"
->
-  <span className="text-xl sm:text-2xl">☉</span>
-</motion.button> */}
+ 
         </div>
       </motion.header> 
 
@@ -166,7 +137,7 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
   
 
               {/* Nav Links with slide-in */}
-              <nav className="flex flex-col items-center justify-center flex-1 space-y-10 text-[#3B3029] text-3xl font-light tracking-wide">
+              <nav className="flex flex-col items-center justify-center flex-1 space-y-10 text-[#A78D7F] text-3xl font-light tracking-wide">
               <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -180,25 +151,6 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
                     Home
                   </Link>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <Link
-                    to="/about"
-                    onClick={() => setIsOpen(false)}
-                    className="transition-colors duration-300 font-serif hover:text-[#C04D4D]"
-                  >
-                    About
-                  </Link>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
                   <Link
                     to="/portfolio"
                     onClick={() => setIsOpen(false)}
@@ -206,7 +158,7 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
                   >
                     Portfolio
                   </Link>
-                </motion.div>
+                {/* </motion.div> */}
 
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -226,31 +178,31 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
               {/* Footer */}
               <div className="mb-8 flex flex-col items-center text-[#8b7d71] text-xs tracking-wider space-y-4">
                 {/* Social Icons */}
-                <div className="flex space-x-5 text-[#3B3029]">
+                <div className="flex space-x-5 text-[#b12727]">
                   <a
-                    href="https://instagram.com/yourhandle"
+                    href="https://instagram.com/claireefreeman"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="hover:text-[#D7BFA6] transition"
+                    className="transition"
                   >
                     <Instagram size={22} />
                   </a>
                   <a
-                    href="https://www.tiktok.com/@yourhandle"
+                    href="https://www.tiktok.com/@claireefreeman"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok"
-                    className="hover:text-[#D7BFA6] transition"
+                    className=" transition"
                   >
                     <Music2 size={22} />
                   </a>
                   <a
-                    href="https://youtube.com/@yourchannel"
+                    href="https://www.youtube.com/@claireefreeman"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube"
-                    className="hover:text-[#D7BFA6] transition"
+                    className=" transition"
                   >
                     <Youtube size={22} />
                   </a>
@@ -266,3 +218,13 @@ export default function Navbar({ hasEntered, isMuted, toggleMute }) {
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+

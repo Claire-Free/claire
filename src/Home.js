@@ -1,9 +1,16 @@
-export default function Home({ hasEntered, isMuted, toggleMute, handleEnterSite, audioRef }) {
+import React from "react";
+
+export default function Home({
+  hasEntered,
+  isMuted,
+  toggleMute,
+  handleEnterSite,
+  audioRef,
+}) {
   return (
     <div className="min-h-screen bg-[#F8F5F0] text-[#3B3029] font-sans relative overflow-hidden">
-
-      {/* BACKGROUND AUDIO
-      <audio ref={audioRef} loop preload="auto" src="/music.mp3" /> */}
+      {/* HIDDEN AUDIO PLAYER */}
+      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/background.mp3`} loop />
 
       {/* MUTE ICON BUTTON */}
       {hasEntered && (
@@ -13,15 +20,41 @@ export default function Home({ hasEntered, isMuted, toggleMute, handleEnterSite,
           className="fixed bottom-6 right-6 z-50 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md transition hover:bg-[#f0eae3]"
         >
           {isMuted ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#3B3029]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-[#3B3029]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 9L15 15M15 9L9 15" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11 5L6 9H3v6h3l5 4V5z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 5L6 9H3v6h3l5 4V5z"
+              />
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#3B3029]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11 5L6 9H3v6h3l5 4V5z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-[#3B3029]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 5L6 9H3v6h3l5 4V5z"
+              />
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.54 8.46a5 5 0 010 7.07" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.66 6.34a8 8 0 010 11.31" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.66 6.34a8 8 0 010 11.31"
+              />
             </svg>
           )}
         </button>
@@ -58,77 +91,56 @@ export default function Home({ hasEntered, isMuted, toggleMute, handleEnterSite,
         <section className="relative w-full h-screen overflow-hidden">
           <video
             className="absolute top-0 left-0 w-full h-full object-cover"
-            src="/intro.mp4"
+            src={`${process.env.PUBLIC_URL}/intro.mp4`}
             autoPlay
             muted
             loop
             playsInline
           />
-          
-      {/* Hero Header */}
-       <div className="flex items-end sticky h-screen top-0  from-black/20 via-transparent to-black/20">
-        <div className="text-[100px] sm:text-[180px] lg:text-[180px] text-[#f2e9e1] text-4xl font-serif leading-none relative xl:-bottom-30 px-8">
-          <h1>Claire</h1>
+
+          {/* Hero Header */}
+          <div className="flex items-end sticky h-screen top-0 from-black/20 via-transparent to-black/20">
+            <div className="text-[100px] sm:text-[180px] lg:text-[180px] text-[#f2e9e1] text-4xl font-serif leading-none relative xl:-bottom-30 px-8">
+              <h1>Claire</h1>
+            </div>
           </div>
-      </div> 
-    
         </section>
       </div>
 
-      {/* SPLASH SCREEN */}
-      {/* {!hasEntered && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center px-8 bg-white/30 backdrop-blur-md">
-        <h1 className="text-5xl p-6 font-serif text-[#A78D7F]">Welcome—explore my site with music for a truly immersive experience.
-</h1> */}
-          {/* <h1 className="text-5xl p-6 font-serif text-[#A78D7F]">Claire Freeman</h1> */}
+      {/* SPLASH SCREEN BEFORE ENTER */}
+      {!hasEntered && (
+        <div className="fixed inset-0 z-50 bg-white/30 backdrop-blur-md">
+          {/* Centered Name */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-6xl font-serif text-[#A78D7F]">Claire Freeman</h1>
+          </div>
 
-          {/* <div className="flex space-x-16">
-            <button
-              onClick={() => handleEnterSite(true)}
-              className="px-8 py-3 border-2 border-[#A78D7F] text-[#A78D7F] text-lg tracking-wider rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-            >
-              Enter with Music
-            </button>
-            <button
-              onClick={() => handleEnterSite(false)}
-              className="px-8 py-3 border-2 border-[#A78D7F] text-[#A78D7F] text-lg tracking-wider rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-            >
-              Enter without Music
-            </button>
+          {/* Bottom-left Corner Info */}
+          <div className="absolute bottom-10 text-8xl left-10 max-w-sm text-left">
+            <p className="text-[#A78D7F] text-lg font-light mb-6">
+              Welcome! Explore my site with music for a truly immersive experience.
+            </p>
+
+            <div className="flex space-x-6">
+              <button
+                onClick={() => handleEnterSite(true)}
+                className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
+              >
+                Enter with Music
+              </button>
+              <button
+                onClick={() => handleEnterSite(false)}
+                className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
+              >
+                Enter without Music
+              </button>
+            </div>
           </div>
         </div>
-      )} */}
-      {!hasEntered && (
-  <div className="fixed inset-0 z-50 bg-white/30 backdrop-blur-md">
-    {/* Centered Name */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h1 className="text-6xl font-serif text-[#A78D7F]">Claire Freeman</h1>
-    </div>
-
-    {/* Bottom-left Corner Info */}
-    <div className="absolute bottom-10 left-10 max-w-sm text-left">
-      <p className="text-[#A78D7F] text-lg font-light mb-6">
-        Welcome—explore my site with music for a truly immersive experience.
-      </p>
-
-      <div className="flex space-x-6">
-        <button
-          onClick={() => handleEnterSite(true)}
-          className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-        >
-          Enter with Music
-        </button>
-        <button
-          onClick={() => handleEnterSite(false)}
-          className="px-6 py-2 border-2 border-[#A78D7F] text-[#A78D7F] text-sm tracking-wide rounded-full hover:bg-[#A78D7F] hover:text-white transition"
-        >
-          Enter without Music
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </div>
   );
 }
+
+
+

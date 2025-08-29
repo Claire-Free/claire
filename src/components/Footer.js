@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex space-x-6">
           <a
-            href="https://instagram.com/yourhandle"
+            href="https://instagram.com/claireefreeman"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -18,7 +18,7 @@ const Footer = () => {
             <Instagram size={22} />
           </a>
           <a
-            href="https://www.tiktok.com/@yourhandle"
+            href="https://www.tiktok.com/@claireefreeman"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="TikTok"
