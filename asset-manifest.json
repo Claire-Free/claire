@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/claire/static/css/main.7d939527.css",
-    "main.js": "/claire/static/js/main.b80f3d34.js",
+    "main.css": "/claire/static/css/main.db5d4b25.css",
+    "main.js": "/claire/static/js/main.db0be0d5.js",
     "index.html": "/claire/index.html",
-    "main.7d939527.css.map": "/claire/static/css/main.7d939527.css.map",
-    "main.b80f3d34.js.map": "/claire/static/js/main.b80f3d34.js.map"
+    "main.db5d4b25.css.map": "/claire/static/css/main.db5d4b25.css.map",
+    "main.db0be0d5.js.map": "/claire/static/js/main.db0be0d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d939527.css",
-    "static/js/main.b80f3d34.js"
+    "static/css/main.db5d4b25.css",
+    "static/js/main.db0be0d5.js"
   ]
 }
